@@ -80,8 +80,10 @@ class ProductManager{
     }
     
     async getProducts(){
-        try{
-            return this.products =  await this.readFile();
+        try{            
+            const lista = await this.readFile();
+            this.products = lista
+            return  this.products 
         }catch(error){
             console.error("getProducts: Error al listar los productos",error);
             return []
@@ -92,11 +94,11 @@ class ProductManager{
         try{
 
             this.products =  await this.readFile();
-            const result = this.products.find(product => product.id == id);
+            const result = this.products.find(product => product.id === id);
             if(result)  
-                console.log(result);
+                return result
             else    
-                console.log(`getProduct: El Producto con id = ${id} no fue encontrado!`);
+                return null;
 
         }catch(error){
             console.error("getProduct: Error durante la lectura del archivo.",error);
