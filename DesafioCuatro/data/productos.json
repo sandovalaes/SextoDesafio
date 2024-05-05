@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "title": "Pinza",
+    "description": "Pinza Reforzada ",
+    "price": 500,
+    "status": true,
+    "thumbnail": "https://crossmaster.com.ar/wp-content/uploads/9970314-768x768.jpg",
+    "code": "pinza24",
+    "stock": 100
+  },
+  {
+    "id": 2,
+    "title": "Martillo",
+    "description": "Martillo marca Mandarin",
+    "price": 700,
+    "status": true,
+    "thumbnail": "https://crossmaster.com.ar/wp-content/uploads/9969154-768x768.jpg",
+    "code": "mar24",
+    "stock": 100
+  },
+  {
+    "id": 3,
+    "title": "Tenaza",
+    "description": "Tenaza Marca Dogo",
+    "price": 600,
+    "status": true,
+    "thumbnail": "https://crossmaster.com.ar/wp-content/uploads/9972206-768x768.jpg",
+    "code": "tena24",
+    "stock": 100
+  },
+  {
+    "id": 4,
+    "title": "Alicate",
+    "description": "Alicate mango azul",
+    "price": 450,
+    "status": true,
+    "thumbnail": "https://crossmaster.com.ar/wp-content/uploads/9970252-768x768.jpg",
+    "code": "ali24",
+    "stock": 100
+  },
+  {
+    "id": 5,
+    "title": "Caja de herramientas",
+    "description": "Caja de herramientas",
+    "price": 1100,
+    "status": true,
+    "thumbnail": "https://crossmaster.com.ar/wp-content/uploads/9931056-768x768.jpg",
+    "code": "caja24",
+    "stock": 100
+  },
+  {
+    "id": 6,
+    "title": "Nivel",
+    "description": "Nivel plastico Marca Dogo",
+    "price": 575,
+    "status": true,
+    "thumbnail": "https://crossmaster.com.ar/wp-content/uploads/9936044-768x768.jpg",
+    "code": "nivel24",
+    "stock": 100
+  },
+  {
+    "id": 7,
+    "title": "Destornillador Plano",
+    "description": "Destornillador Marca Dogo",
+    "price": 620,
+    "status": true,
+    "thumbnail": "https://crossmaster.com.ar/wp-content/uploads/9940724-9-768x768.jpg",
+    "code": "destor24",
+    "stock": 100
+  },
+  {
+    "id": 8,
+    "title": "Voltimetro",
+    "description": "Voltimetro Digital",
+    "price": 500,
+    "status": true,
+    "thumbnail": "https://crossmaster.com.ar/wp-content/uploads/9936586-768x768.jpg",
+    "code": "volti24",
+    "stock": 100
+  },
+  {
+    "id": 9,
+    "title": "Pinza de Punta",
+    "description": "Pinza de Punta",
+    "price": 500,
+    "status": true,
+    "thumbnail": "https://crossmaster.com.ar/wp-content/uploads/9970290-768x768.jpg",
+    "code": "pinpun24",
+    "stock": 790
+  },
+  {
+    "id": 10,
+    "title": "Destornillador Philip",
+    "description": "Philip imantado marcad dogo",
+    "price": 500,
+    "status": true,
+    "thumbnail": "https://crossmaster.com.ar/wp-content/uploads/9940924-9-768x768.jpg",
+    "code": "desphi24",
+    "stock": 100
+  }
+]
