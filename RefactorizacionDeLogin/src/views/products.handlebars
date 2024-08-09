@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <h1 class="text-center mb-4">BIENVENIDO {{this.user.first_name}} {{this.user.last_name}}! Rol: {{this.user.rol}}</h1>
+    <h2 class="text-center mb-4">NUESTROS PRODUCTOS</h2>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        {{#each payload}}
+        <div class="col mb-4">
+            <div class="card h-100 bg-light">
+                <div class="card-body">
+                    <h5 class="card-title text-black">{{this.title}}</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <img src={{this.thumbnail}} alt={{this.title}}
+                                class="img-fluid mt-2">
+                        </li>
+                        <li><i class="bi bi-info-circle"></i> ID: {{this.id}}</li>
+                        <li><i class="bi bi-file-text"></i> Description: {{this.description}}</li>
+                        <li><i class="bi bi-currency-dollar"></i> Price: ${{this.price}}</li>
+                        <!--<li><i class="bi bi-grid"></i> Category: {{this.category}}</li> -->
+                        <li><i class="bi bi-check-circle"></i> Status: {{this.status}}</li>
+                        <li><i class="bi bi-box"></i> Stock: {{this.stock}}</li>
+                    </ul>
+                    <button class="btn btn-primary mb-4" onclick = "addToCart('{{this.id}}')" >Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="mt-4">
+        {{#if prevLink}}
+        <a href={{prevLink}} class="btn btn-primary mb-4">Página anterior</a>
+        {{/if}}
+        {{#if nextLink}}
+        <a href={{nextLink}} class="btn btn-primary ml-2 mb-4">Página siguiente</a>
+        {{/if}}
+    </div>
+</div>
+
+<script src="/js/addToCart.js"></script>

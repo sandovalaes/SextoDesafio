@@ -1,0 +1,26 @@
+<div class="section">
+    <div class="container">
+        <h4 class="title has-text-centered mt-4">Mi Carrito</h4>
+        <!--<ul class="box is-flex is-justify-content-space-between is-align-content-center is-flex-wrap-wrap">-->
+            {{#if payload.length}}
+                    <!--<strong class="total">Total: {{total}}</strong>-->
+                {{#each payload}}
+                <div class="d-flex flex-row justify-content-between">
+                    <!--<li class="box is-flex is-justify-content-space-between is-align-content-center is-flex-wrap-wrap">-->
+                        <div><strong>Producto:</strong> {{this.product.title}}</div>
+                        <div><strong>Precio:</strong> ${{this.product.price}}</div>
+                        <div><strong>Cantidad:</strong> {{this.quantity}}</div>
+                        <div><button class="btn btn-success ml-2 mb-4 eliminar-producto" data-product-id="{{this.product._id}}" >Eliminar</button></div>
+                    <!--</li>-->
+                </div>
+                {{/each}}
+            {{else}}
+                <p>El carrito está vacío.</p>
+            {{/if}}
+        <!--</ul>-->
+        <div >
+            <a href="/api/products/view" class="btn btn-primary ml-2 mb-4">Volver a productos</a>
+        </div>
+    </div>
+</div>
+<script src="/js/deleteToCart.js"></script>
