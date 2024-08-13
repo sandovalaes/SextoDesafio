@@ -9,6 +9,8 @@ import productsRouter from "./routes/products.router.js";
 import cartRouter from "./routes/carts.router.js";
 import sessionsRouter from './routes/api/sessions.js';
 import session from 'express-session';
+import passport from 'passport';
+import initializePassport from './config/passport.config.js';
 
 const app = express();
 const PORT = 8080;
@@ -40,6 +42,10 @@ app.use(session({
     store: MongoStore.create({ mongoUrl: 'mongodb+srv://sandovalaes:Tomate24-@cluster0.bqinruk.mongodb.net/' }),
     // cookie: { maxAge: 180 * 60 * 1000 },
 }));
+
+initializePassport()
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use('/', indexRouter);
 app.use("/api/sessions", sessionsRouter);

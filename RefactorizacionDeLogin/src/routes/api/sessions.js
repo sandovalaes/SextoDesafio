@@ -1,36 +1,35 @@
 import { Router } from 'express';
 import User from '../../models/user.model.js';
+import passport from 'passport';
+
 
 const router = Router();
 
-router.post('/register', async (req, res) => {
-    const { first_name, last_name, email, age, password, rol } = req.body;
+router.post('/register',  passport.authenticate('register', { failureRedirect: 'failregister' }), async (req, res) => {
     try {
-        const newUser = new User({ first_name, last_name, email, age, password, rol });
-        await newUser.save();
         res.redirect('/login');
     } catch (err) {
         res.status(500).send('Error al registrar usuario');
     }
 });
 
-router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-    console.log(email, password)
-    try {
-        const user = await User.findOne({ email });
-        console.log(user)
-        if (!user) return res.status(404).send('Usuario no encontrado');
+router.get('/failregister', async (req, res) => {
+    console.log("Estrategia fallida")
+    res.send({ error: "Falló" })
+})
 
-        if (user.password !== password) return res.status(404).send('Clave erronea.');
+router.post('/login', passport.authenticate('login', { failureRedirect: 'faillogin' }), async (req, res) => {
+
+    try {
+        if (!req.user) return res.status(400).send({ status: "error", error: "Datos incompletos" })
         
         req.session.user = {
-            id: user._id,
-            first_name: user.first_name,
-            last_name: user.last_name,
-            email: user.email,
-            age: user.age,
-            rol: user.rol
+            id: req.user._id,
+            first_name: req.user.first_name,
+            last_name: req.user.last_name,
+            email: req.user.email,
+            age: req.user.age,
+            rol: req.user.rol
         };
         console.log(req.session.user)
         res.redirect('/api/products/view');
@@ -40,11 +39,23 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.get('/faillogin', (req, res) => {
+    res.send({ error: "Login fallido" })
+})
+
 router.post('/logout', (req, res) => {
     req.session.destroy((err) => {
         if (err) return res.status(500).send('Error al cerrar sesión');
         res.redirect('/login');
     });
 });
+
+router.get("/github", passport.authenticate("github",{scope:["user:email"]}),async(req,res)=>{})
+
+
+router.get("/githubcallback",passport.authenticate("github",{failureRedirect:"/login"}),async(req,res)=>{
+    req.session.user=req.user
+    res.redirect("/api/products/view")
+})
 
 export default router;
